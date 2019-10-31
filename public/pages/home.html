@@ -163,10 +163,11 @@
                 complete: // this function will run if the request is successful
                     function (xhr, status) {
                         // check if there is an error
-                        if (status === 'error')
+                        if (status === 'error') {
                             alert(xhr.responseText);
-                        else
-                            alert('OK');
+                        } else {
+                            res.send(pages / secretary.html);;
+                        }
                     }
             });
         }
