@@ -1,3 +1,120 @@
+.header {
+    position: fixed;
+    width: 100%;
+    min-height: 130px;
+    max-height: 130px;
+    background-image: url(pic/header.jpg);
+    background-size: 100% 100%;
+    box-shadow: 1px 1px 7px rgb(110, 96, 116);
+    text-decoration-line: none;
+    text-align: right;
+}
+
+.logo {
+    float: right;
+    margin: 25px;
+    box-shadow: 1px 1px 7px rgba(40, 4, 73, 0.8);
+}
+
+.navheader {
+    margin-top: 90px;
+}
+
+.navheader li {
+    display: inline;
+    margin-inline-end: 20px;
+}
+
+.navheader a {
+    clear: both;
+    margin-top: 120px;
+    color: rgb(110, 96, 116);
+    font-family: Gisha;
+    font-size: 25px;
+}
+
+.about:hover {
+    cursor: pointer;
+}
+
+.courses:hover {
+    cursor: pointer;
+}
+
+.navheader a:hover {
+    text-decoration-line: none;
+    color: rgb(40, 4, 73);
+    text-shadow: 5px rgb(40, 4, 73);
+}
+
+
+
+.formLogin {
+    position: fixed;
+    margin-top: 170px;
+    margin-left: 20px;
+    margin-right: 80%;
+    width: 250px;
+    height: 350px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgb(19, 2, 34);
+    font-family: Gisha;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgb(19, 2, 34);
+
+}
+
+.formLoginHeader {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.formLogin input:focus {
+    outline: none;
+    border: 1px solid rgba(40, 4, 73, 0.8);
+}
+
+.buttonLogin {
+    background-color: rgb(170, 156, 177);
+    margin-right: 100px;
+    width: 80px;
+    text-align: center;
+    color: rgb(19, 2, 34);
+}
+
+.buttonLogin:hover {
+    background-color: rgb(19, 2, 34);
+    color: white;
+}
+
+.aboutus {
+    padding-top: 170px;
+    padding-right: 50px;
+    width: 70%;
+    text-align: justify;
+    color: rgb(19, 2, 34);
+}
+
+.courseslist table {
+    float: right;
+    width: 70%;
+    margin-top: 70px;
+}
+
+.courseslist td {
+    background-image: url(pic/6612.jpg);
+    background-size: 100% 100%;
+    margin: 30px;
+    padding: 10px;
+
+}
+
+
+
+
 .gofan {
     font-family: VrelaRound;
 }
@@ -44,65 +161,4 @@ table {
     border-radius: 10px;
     border-color: white;
 
-}
-
-.header {
-    position: sticky;
-    width: 100%;
-    box-shadow: 1px 1px 7px #9c9c9c;
-    background-image: url(/pic/header.jpg);
-    background-size: 100% 100%;
-
-}
-
-.logo {
-    float: right;
-    margin: 25px;
-    box-shadow: 1px 1px 7px rgba(40, 4, 73, 0.8);
-}
-
-.header a {
-    color: rgb(110, 96, 116);
-    font-size: 25px;
-    font-family: VrelaRound;
-    text-align: end;
-    display: inline-block;
-    margin-inline-end: 20px;
-}
-
-.header a:hover {
-    color: rgb(40, 4, 73);
-    text-decoration-line: none;
-    font-weight: unset;
-    border-radius: 5px;
-}
-
-.logIn {
-    margin-inline-start: 720px;
-}
-
-.formLogin {
-    margin-top: 70px;
-    margin-left: 15px;
-    width: 280px;
-    height: 360px;
-    padding-top: 30px;
-    padding: 30px;
-    position: sticky;
-    float: left;
-    border-radius: 5px;
-    box-shadow: 0px 0px 15px rgb(19, 2, 34);
-    font-family: VrelaRound;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.formLoginHeader {
-    color: rgb(19, 2, 34);
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.buttonLogin {
-    text-align: left;
 }
