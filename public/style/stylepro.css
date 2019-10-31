@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 130px;
     max-height: 130px;
-    background-image: url(pic/header.jpg);
+    background-image: url(/pic/header.jpg);
     background-size: 100% 100%;
     box-shadow: 1px 1px 7px rgb(110, 96, 116);
     text-decoration-line: none;
