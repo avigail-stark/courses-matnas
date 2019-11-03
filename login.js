@@ -17,29 +17,49 @@ mysql.createPool({
     });
 
 module.exports = {
-    login
+    login,
+    register
 }
 
-// let users = [{
-//     userName: 'nir',
-//     password: '123'
-// }];
-
-function login(res, req) {
+function login(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
 
-    let users = db.query("select * from teachers");
+    let users;
+    db.query("select * from teachers_workers")
+        .then((u) => {
+            users = u;
+            for (let user of users) {
+                if (user.userName === userName && user.password === password) {
+                    res.send("OK");
+                }
 
-    for (let user of users) {
-        if (user.userName === req.body.userName && user.password === req.body.password) {
-            res.send("OK");
-        } else {
+            }
+            res.status(500);
             res.send("ERORR");
-        }
-
-    }
-
-    res.send("ERORR");
-
+        });
 };
+
+function register(req, res) {
+    let userName = req.body.userName;
+    let password = req.body.password;
+
+    let users;
+    db.query("select * from teachers_workers")
+        .then((u) => {
+            users = u;
+            for (let user of users) {
+                if (user.userName === userName && user.password === password) {
+                    res.status(500);
+                    res.send("ERROR");
+                }
+            }
+            let user=
+            {
+                userName,
+                password
+            };
+            //???
+            db.query("insert into teachers_workers values ("+userName+","+password+")")
+        });
+}

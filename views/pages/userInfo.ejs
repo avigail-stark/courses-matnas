@@ -1,0 +1,13 @@
+<html>
+    <!-- ?? -->
+<% -include (../partials/header)%>
+<h1> Hello <%= userId%>!!!</h1>
+
+<p> the current time is: <%= new Date()%> </p>
+
+<ol>
+    <% for (let item of data){%>
+    <li><%=item%></li>
+    <%}%>
+</ol>
+</html>

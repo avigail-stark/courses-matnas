@@ -17,11 +17,14 @@ app.use(express.json());
 //user test tamlate
 app.get("/userInfo/:userId", (req, res) => {
     console.log(req.params.userId);
-    res.render("./userInfo", {
-       userId:req.params.userId
+    res.render("pages/userInfo", {
+        userId: req.params.userId,
+        data: ['item1', 'item2']
+
     });
 });
 
+// login test
 app.get('/test', (req, res) => {
     return test(req, res);
 });
@@ -40,10 +43,10 @@ app.get('/courseDetails', (req, res) => res.sendFile('./public/pages/courseDetai
 }));
 
 app.post('/registration/register', (req, res) => {
-    return registration.register(req, res);
+     registration.register(req, res);
 });
 app.post('/registration/login', (req, res) => {
-    login.login(res, req);
+    login.login(req, res);
 });
 
 app.listen(port, () => console.log('Example app listening on port ' + port));
