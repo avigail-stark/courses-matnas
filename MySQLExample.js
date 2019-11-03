@@ -20,5 +20,4 @@ module.exports = async function (req, res) {
     let promise = db.query("select * from teachers");
     let data = await promise;
     res.send(data);
-
 }

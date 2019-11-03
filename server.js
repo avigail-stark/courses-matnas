@@ -3,9 +3,9 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const login = require("./login.js");
 const test = require("./MySQLExample.js");
-
 const port = process.env.PORT || 80;
 
+app.set("view engine", "ejs");
 
 app.use(express.static('public'));
 app.use(cookieParser());
@@ -13,6 +13,14 @@ app.use(cookieParser());
 app.use(express.urlencoded());
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
+
+//user test tamlate
+app.get("/userInfo/:userId", (req, res) => {
+    console.log(req.params.userId);
+    res.render("./userInfo", {
+       userId:req.params.userId
+    });
+});
 
 app.get('/test', (req, res) => {
     return test(req, res);
