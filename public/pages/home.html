@@ -17,7 +17,7 @@
 <body>
     <div class="header">
         <div class="logoImg" href="home.html">
-            <img src="/pic/logo.jpg" class="logo" alt="logo" >
+            <img src="/pic/logo.jpg" class="logo" alt="logo">
         </div>
         <div class="navheader">
             <li><a class="about">אודות</a></li>
@@ -163,10 +163,11 @@
                 complete: // this function will run if the request is successful
                     function (xhr, status) {
                         // check if there is an error
-                        if (status === 'error')
+                        if (status === 'error') {
                             alert(xhr.responseText);
-                        else
-                            alert('OK');
+                        } else {
+                            res.send(pages / secretary.html);
+                        }
                     }
             });
         }
