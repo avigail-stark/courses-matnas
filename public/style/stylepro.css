@@ -165,7 +165,6 @@
 .formRegister input:focus {
     outline: none;
     border: 1px solid rgba(40, 4, 73, 0.8);
-<<<<<<< HEAD
 }
 
 .secmenu {
@@ -177,17 +176,4 @@
 .secmenu li {
     color: rgb(19, 2, 34);
     background-color: rgb(110, 96, 116);
-=======
-}
-
-.secmenu {
-    padding-top: 170px;
-    padding-right: 70px;
-    width: 150px;
-}
-
-.secmenu li {
-    color: rgb(19, 2, 34);
-    background-color: rgb(110, 96, 116);
->>>>>>> 5b1e4a1cbd24ec859042ff7f357721cbdc76a5a2
 }
