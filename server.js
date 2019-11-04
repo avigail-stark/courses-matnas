@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
@@ -43,7 +44,7 @@ app.get('/courseDetails', (req, res) => res.sendFile('./public/pages/courseDetai
 }));
 
 app.post('/registration/register', (req, res) => {
-     registration.register(req, res);
+    registration.register(req, res);
 });
 app.post('/registration/login', (req, res) => {
     login.login(req, res);
