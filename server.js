@@ -18,15 +18,27 @@ app.use(express.json());
 app.get("/userInfo/:userId", (req, res) => {
     console.log(req.params.userId);
     res.render("./userInfo", {
-       userId:req.params.userId
+        userId: req.params.userId,
+
     });
+});
+app.get("/", (req, res) => {
+    console.log(req.params);
+    res.render("./pages/home", {});
+});
+app.get("/secretary", (req, res) => {
+    console.log(req.params);
+    res.render("./pages/secretary", {});
 });
 
 app.get('/test', (req, res) => {
     return test(req, res);
 });
 
-app.get('/', (req, res) => res.sendFile('./public/pages/home.html', {
+app.get('/', (req, res) => res.sendFile('./views/pages/home.ejs', {
+    root: __dirname
+}));
+app.get('/', (req, res) => res.sendFile('./views/pages/secretary.ejs', {
     root: __dirname
 }));
 app.get('/teacherreg', (req, res) => res.sendFile('./public/pages/teacherreg.html', {

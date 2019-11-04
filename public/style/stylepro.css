@@ -166,3 +166,14 @@
     outline: none;
     border: 1px solid rgba(40, 4, 73, 0.8);
 }
+
+.secmenu {
+    padding-top: 170px;
+    padding-right: 70px;
+    width: 150px;
+}
+
+.secmenu li {
+    color: rgb(19, 2, 34);
+    background-color: rgb(110, 96, 116);
+}
