@@ -1,0 +1,91 @@
+CREATE TABLE `branches` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`branche_name` VARCHAR(100) NOT NULL,
+	`st.address` VARCHAR(250) NOT NULL,
+	`office_phone` INT(10) NULL DEFAULT NULL,
+	`manager` VARCHAR(50) NULL DEFAULT NULL,
+	`manager_phone` INT(10) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+;
+//
+
+CREATE TABLE `course_detailes` (
+	`id` INT(11) NOT NULL,
+	`men/women` VARCHAR(6) NOT NULL,
+	`morning/evening` VARCHAR(10) NOT NULL,
+	`branche` VARCHAR(100) NOT NULL,
+	`teacher` VARCHAR(100) NOT NULL,
+	`date` DATE NULL DEFAULT NULL,
+	`day/s` VARCHAR(20) NULL DEFAULT NULL,
+	`houres` VARCHAR(20) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_cibranches'
+ENGINE=InnoDB
+;
+
+
+//
+CREATE TABLE `students` (
+	`id` INT(11) NOT NULL,
+	`first_name` VARCHAR(50) NOT NULL,
+	`last_name` VARCHAR(50) NOT NULL,
+	`cell_phone` INT(10) NULL DEFAULT NULL,
+	`phone_num` INT(10) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
+//
+CREATE TABLE `course_list` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name_course` CHAR(100) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `course_list_name_course_uindex` (`name_course`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
+//
+CREATE TABLE `teachers_workers` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`first_name` VARCHAR(50) NULL DEFAULT NULL,
+	`last_name` VARCHAR(50) NULL DEFAULT NULL,
+	`userName` VARCHAR(20) NULL DEFAULT NULL,
+	`password` VARCHAR(15) NULL DEFAULT NULL,
+	`cell_phone` INT(10) NULL DEFAULT NULL,
+	`phone_num` INT(9) NULL DEFAULT NULL,
+	`st.` VARCHAR(100) NULL DEFAULT NULL,
+	`num_house` INT(11) NULL DEFAULT NULL,
+	`city` VARCHAR(20) NULL DEFAULT NULL,
+	`mail` VARCHAR(250) NULL DEFAULT NULL,
+	`start_work_date` DATE NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=2
+;
+
+
+//
+CREATE TABLE `workers_mafteach` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`id_branche` INT(11) NOT NULL,
+	`name` VARCHAR(50) NOT NULL,
+	`title_worker` VARCHAR(150) NOT NULL,
+	`phone` INT(11) NULL DEFAULT NULL,
+	`mail` VARCHAR(250) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
