@@ -12,6 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.4",
+<<<<<<< HEAD
+=======
+    "dotenv": "^8.2.0",
+>>>>>>> 5b1e4a1cbd24ec859042ff7f357721cbdc76a5a2
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "promise-mysql": "^4.1.1"
