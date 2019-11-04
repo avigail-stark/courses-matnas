@@ -4,10 +4,10 @@ let db;
 
 mysql.createPool({
         connectionLimit: 100,
-        host: "localhost",
-        user: "root",
-        password: "h032540338",
-        database: "course_matnas"
+        host: "process.env.matnas_course_URL",
+        user: "process.env.matnas_course_USER",
+        password: "process.env.matnas_course_PASSWORD",
+        database: "process.env.matnas_course_DATABASE"
     })
     .then((c) => {
         db = c;

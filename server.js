@@ -18,12 +18,12 @@ app.use(express.json());
 //user test tamlate
 app.get("/userInfo/:userId", (req, res) => {
     console.log(req.params.userId);
-        res.render("pages/userInfo", {
-            userId: req.params.userId,
-            data: ['item1', 'item2']
-    
-        });
+    res.render("pages/userInfo", {
+        userId: req.params.userId,
+        data: ['item1', 'item2']
+
     });
+});
 
 app.get("/", (req, res) => {
     console.log(req.params);
@@ -35,15 +35,15 @@ app.get("/secretary", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-console.log(req.params);
-res.render("./pages/home", {});
+    console.log(req.params);
+    res.render("./pages/home", {});
 });
 app.get("/secretary", (req, res) => {
-console.log(req.params);
-res.render("./pages/secretary", {});
+    console.log(req.params);
+    res.render("./pages/secretary", {});
 });
 
-    
+
 
 // login test
 app.get('/test', (req, res) => {
@@ -54,16 +54,10 @@ app.get('/test', (req, res) => {
 app.get('/', (req, res) => res.sendFile('./views/pages/home.ejs', {
     root: __dirname
 }));
-app.get('/', (req, res) => res.sendFile('./views/pages/secretary.ejs', {
-=======
-app.get('/', (req, res) => res.sendFile('./views/pages/home.ejs', {
+app.get('/secretary', (req, res) => res.sendFile('./views/pages/secretary.ejs', {
     root: __dirname
 }));
-app.get('/', (req, res) => res.sendFile('./views/pages/secretary.ejs', {
 
-app.get('/', (req, res) => res.sendFile('./public/pages/home.html', {
-    root: __dirname
-}));
 app.get('/teacherreg', (req, res) => res.sendFile('./public/pages/teacherreg.html', {
     root: __dirname
 }));
