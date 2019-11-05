@@ -3,7 +3,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 const login = require("./login.js");
-const test = require("./MySQLExample.js");
+// const test = require("./MySQLExample.js");
 const port = process.env.PORT || 80;
 
 app.set("view engine", "ejs");
@@ -46,7 +46,7 @@ app.get("/secretary", (req, res) => {
 
 
 // login test
-app.get('/test', (req, res) => {
+app.get('', (req, res) => {
     return test(req, res);
 });
 

@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+<header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</header>
 
 <body>
 
@@ -7,12 +18,47 @@
     <form action="" class="formLogin">
         <div class="formLoginHeader">משתמש רשום? <br> התחבר:</div>
         <div><br><br>הכנס שם משתמש:<br>
-            <input type="text" name="userName" value=" ">
+            <input type="text" name="userName" id="userName" value="">
             <br><br>הכנס סיסמא:<br>
-            <input type="text" name="password" value=" ">
+            <input type="password" name="password" id="password" value="">
             <br><br><br></div>
-        <input type="submit" value="התחבר" class="buttonLogin">
+        <input type="button" id="submitLogin" value="התחבר" class="buttonLogin">
     </form>
+
+
+    <script>
+        // listen to click event of the submit button
+        $('#submitLogin').click(function (e) {
+            // make sure the form is not submitted
+            e.preventDefault();
+            // run the form validations
+            document.getElementsByClassName('formLogin')[0].checkValidity();
+            // check if the form is valid
+            if (document.getElementsByClassName('formLogin')[0].reportValidity()) {
+                // form is valid, create a post request
+                $.ajax({
+                    type: "post",
+                    url: "registration/login",
+                    // the user data 
+                    data: {
+                        userName: $('#userName').val(),
+                        password: $('#password').val()
+                    },
+                    complete: // this function will run if the request is successful
+                        function (xhr, status) {
+
+                            // check if there is an error
+                            if (status === 'error') {
+                                alert(xhr.responseText);
+                            } else {
+                                window.location.href = "/secretary";
+                            }
+                        }
+                });
+            }
+        });
+    </script>
+
 </body>
 
 </html>

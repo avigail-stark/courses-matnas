@@ -21,7 +21,7 @@
         <%- include ../partials/navheader%>
     </div>
     <%- include ../partials/formLogin%>
- 
+
     <div class="aboutus">
         <h1>אודות מרכז הקורסים</h1>
         <p> לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית נולום ארווס סאפיאן - פוסיליס קוויס, אקווזמן קוואזי במר
@@ -55,39 +55,5 @@
     </div>
 
 </body>
-
-<script>
-    // listen to click event of the submit button
-    $('#submitLogin').click(function (e) {
-        // make sure the form is not submitted
-        e.preventDefault();
-        // run the form validations
-        document.getElementsByClassName('formLogin')[0].checkValidity();
-        // check if the form is valid
-        if (document.getElementsByClassName('formLogin')[0].reportValidity()) {
-            // form is valid, create a post request
-            $.ajax({
-                type: "post",
-                url: "registration/login",
-                // the user data 
-                data: {
-                    userName: $('#userName').val(),
-                    password: $('#password').val()
-                },
-                complete: // this function will run if the request is successful
-                    function (xhr, status) {
-                        // check if there is an error
-                        if (status === 'error') {
-                            alert(xhr.responseText);
-                        } else {
-                            window.location.href = "/pages/secretary.html";
-                        }
-                    }
-            });
-        }
-    });
-</script>
-
-
 
 </html>
