@@ -68,10 +68,11 @@ app.get('/courseDetails', (req, res) => res.sendFile('./public/pages/courseDetai
     root: __dirname
 }));
 
-app.post('/registration/register', (req, res) => {
-    registration.register(req, res);
+app.post('/registration/register', async (req, res) => {
+    let result = await login.register(req, res);
+    res.send(result);
 });
-app.post('/registration/login', (req, res) => {
+app.post('/registration/login', async (req, res) => {
     login.login(req, res);
 });
 

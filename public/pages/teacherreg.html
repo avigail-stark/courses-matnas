@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
-<script src="scripts/scriptpro.js"></script>
 <!-- register teacher -->
 
 <head>
     <title>רישום מרצה</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/style/stylepro.css" />
-
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 
 
@@ -43,6 +45,16 @@
             </tr>
             <tr></tr>
             <tr>
+                <td> שם משתמש</td>
+                <td><input type="userName" name="userName" id="userName" required></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td> סיסמא</td>
+                <td><input type="password" name="password" id="password" minlength="5" maxlength="16" required></td>
+            </tr>
+            <tr></tr>
+            <tr>
                 <td>תעודת זהות</td>
                 <td><input type="number" name="id" id="id" required></td>
             </tr>
@@ -73,15 +85,11 @@
             </tr>
             <tr></tr>
             <tr>
-                <td> Email- שם משתמש</td>
+                <td> Email</td>
                 <td><input type="email" name="email" id="email" required></td>
             </tr>
             <tr></tr>
-            <tr>
-                <td> סיסמא</td>
-                <td><input type="password" name="password" id="password" minlength="5" maxlength="16" required></td>
-            </tr>
-            <tr></tr>
+
             <tr>
                 <td>תאריך תחילת עבודה</td>
                 <td><input type="date" name="startWorkDate" id="startWorkDate" required></td>
@@ -96,5 +104,49 @@
         </table>
     </form>
 </body>
+<!-- מעביר פירטי מרצה לסרדר -->
+<script>
+    // listen to click event of the submit button
+    $('#submit').click(function (e) {
+        // make sure the form is not submitted
+        e.preventDefault();
+        // run the form validations
+        document.getElementsByClassName('formRegister')[0].checkValidity();
+        // check if the form is valid
+        if (document.getElementsByClassName('formRegister')[0].reportValidity()) {
+            // form is valid, create a post request
+            $.ajax({
+                type: "post",
+                url: "registration/register",
+                // the user data 
+                data: {
+                    firstName: $('#firstName').val(),
+                    lastName: $('#lastName').val(),
+                    userName: $('#userName').val(),
+                    password: $('#password').val(),
+                    id: $('#id').val(),
+                    cellphone: $('#cellphone').val(),
+                    phone: $('#phone').val(),
+                    st: $('#st').val(),
+                    houseNo: $('#houseNo').val(),
+                    city: $('#city').val(),
+                    email: $('#email').val(),
+                    startWorkDate: $('#startWorkDate').val(),
+
+                },
+                complete: // this function will run if the request is successful
+                    function (xhr, status) {
+
+                        // check if there is an error
+                        if (status === 'error') {
+                            alert(xhr.responseText);
+                        } else {
+                            alert(xhr.responseText);
+                        }
+                    }
+            });
+        }
+    });
+</script>
 
 </html>
