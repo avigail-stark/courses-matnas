@@ -2,7 +2,7 @@
 <html lang="he" dir="rtl">
 
 <head>
-    <title>קורסי מתנ"ס</title>
+    <title>צור קשר-קורסי מתנ"ס</title>
     <link rel="stylesheet" type="text/css" href="/style/stylepro.css" />
 
     <meta charset="utf-8">
@@ -12,22 +12,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+    <!-- <%- include ../partials/header%> -->
+
 </head>
 
 <body>
     <nav class="header">
-        <a class="logoImg" href="home.html">
-            <img src="/pic/logo.jpg" class="logo" alt="logo" style="width:250px">
-        </a>
-        <a class="courses" href="">קורסים</a>
-        <a href="" class="gallery">גלריה</a>
-        <a class="contact" href="/pages/contact.html">צור קשר</a>
-        <!-- <a class="logIn" href="">
-            התחבר
-        </a> -->
+        <a  class="logoImg" href="/">
+            <img src="/pic/logo.jpg" class="logo" alt="logo" style="width:250px"></a>
+            <div class="navheader">
+        <li><a class="about">אודות</a></li>
+        <li><a class="courses">קורסים</a></li>
+        <li><a href="gallery" class="gallery">גלריה</a></li>
+        <li><a href="contact" class="contact">צור קשר</a></li>
+
+        <a class="logIn" href="/">התחבר</a>
+        </div>
     </nav>
 
-    
+    <form action="" class="formLogin" style="margin: 190px; height: 450px; width: 350px;">
+        <div class="formLoginHeader" style="font-size: 40px;">צור קשר</div>
+        <div><br><br>שם פרטי<br>
+            <input type="text" name="firstname" id="firstname" value="">
+            <br><br>שם משפחה<br>
+            <input type="text" name="lastname" id="lastname" value="">
+            <br><br>טלפון<br>
+            <input type="text" name="phoneno" id="phoneno" value="">
+            <br><br>מייל<br>
+            <input type="text" name="email" id="email" value="">
+            <br><br>תוכן ההודעה<br>
+            <input type="text" name="message" id="message" value="" style="size: 50px;">
+            <br><br><br></div>
+        <input type="button" id="submitLogin" value="שלח" class="buttonLogin">
+    </form>
 </body>
 
 </html>

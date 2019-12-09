@@ -5,8 +5,12 @@
 
 
 <head>
-    <title>רישום תלמיד</title>
+    <title>רישום תלמיד-קורסי מתנ"ס</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/style/stylepro.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -14,9 +18,12 @@
 <!-- register student -->
 
 <body class="gofan">
-   
-    <form action="">
+
+    <form action="" class="formRegister">
         <table>
+            <tr>
+                <td colspan="3"><img src="/pic/logo.jpg" class="logoRegister" alt="logo"></td>
+            </tr>
             <tr>
                 <td colspan="3" ; class="formHeader">
                     טופס רישום תלמיד
@@ -29,20 +36,22 @@
                 </td>
             </tr>
             <tr>
-                <td>שם פרטי</td>
-                <td><input type="text" name="firstName" id="firstName" required></td>
-            </tr>
-            <tr></tr>
-            <tr>
-                <td>שם משפחה</td>
-                <td><input type="text" name="lastName" id="lastName" required></td>
-            </tr>
-            <tr></tr>
-            <tr>
                 <td>תעודת זהות</td>
                 <td><input type="number" name="id" id="id" required></td>
             </tr>
             <tr></tr>
+
+            <tr>
+                <td>שם פרטי</td>
+                <td><input type="text" name="firstName" id="firstname" required></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>שם משפחה</td>
+                <td><input type="text" name="lastName" id="lastname" required></td>
+            </tr>
+            <tr></tr>
+
             <tr>
                 <td>פלאפון</td>
                 <td><input type="text" name="cellphone" id="cellphone" required></td>
@@ -50,20 +59,19 @@
             <tr></tr>
             <tr>
                 <td>טלפון</td>
-                <td><input type="text" name="phone" id="phone"></td>
+                <td><input type="text" name="phone" id="phonenum"></td>
             </tr>
             <tr></tr>
 
             <td> Email</td>
-            <td><input type="email" name="email" id="email" required></td>
+            <td><input type="email" name="email" id="email"></td>
             </tr>
             <tr></tr>
 
             <tr>
                 <td></td>
                 <td></td>
-                <td><input type="submit" value="שמור" id="submit"
-                        onclick="teacherDeta(firstName.value,lastName.value,id.value,cellphone.value,phone.value,st.value,houseNo.value,city.value,email.value,password.value,startWorkDate.value)">
+                <td><input type="submit" value="שמור" id="submit">
                 </td>
 
             </tr>
@@ -72,5 +80,42 @@
         </table>
     </form>
 </body>
+<!-- מעביר פירטי מרצה לסרבר -->
+<script>
+    // listen to click event of the submit button
+    $('#submit').click(function (e) {
+        // make sure the form is not submitted
+        e.preventDefault();
+        // run the form validations
+        document.getElementsByClassName('formRegister')[0].checkValidity();
+        // check if the form is valid
+        if (document.getElementsByClassName('formRegister')[0].reportValidity()) {
+            // form is valid, create a post request
+            $.ajax({
+                type: "post",
+                url: "registration/registerstudent",
+                // the user data 
+                data: {
+                    id: $('#id').val(),
+                    firstname: $('#firstname').val(),
+                    lastname: $('#lastname').val(),
+                    cellphone: $('#cellphone').val(),
+                    phonenum: $('#phonenum').val(),
+                    email: $('#email').val(),
+                },
+                complete: // this function will run if the request is successful
+                    function (xhr, status) {
+
+                        // check if there is an error
+                        if (status === 'error') {
+                            alert(xhr.responseText);
+                        } else {
+                            alert(xhr.responseText);
+                        }
+                    }
+            });
+        }
+    });
+</script>
 
 </html>

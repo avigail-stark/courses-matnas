@@ -17,9 +17,11 @@ mysql.createPool({
 
 module.exports = {
     login,
-    register
-}
+    register,
+    registerstudent
 
+}
+//כניסה למערכת
 async function login(req, res) {
     let userName = req.body.userName;
     let password = req.body.password;
@@ -35,7 +37,7 @@ async function login(req, res) {
     res.send("שם משתמש ו/או סיסמא אינם נכונים");
 };
 
-
+//הרשמה למערכת
 async function register(req, res) {
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
@@ -53,7 +55,7 @@ async function register(req, res) {
     let users = await db.query("select * from teachers_workers");
 
     for (let user of users) {
-      
+
         if (
             // user.firstName === firstName &&
             //     user.lastName === lastName &&
@@ -69,18 +71,55 @@ async function register(req, res) {
             // user.email === email &&
             // user.startWorkDate === startWorkDate
         ) {
-        
             res.status(500);
             return res.send("משתמש קיים במערכת");
         }
     }
     await db.query(`insert into teachers_workers (first_name, last_name, userName,
              password, id, cell_phone, phone_num, st, num_house, city, mail, start_work_date)
-            VALUES("${req.body.firstName}", "${req.body.lastName}", "${req.body.userName}", "${req.body
-                .password}", "${req.body.id}", "${req.body.cellphone}", "${req.body.phone}", "${req
-                .body.st}", "${req.body.houseNo}", "${req.body.city}", "${req.body.email}", "${req
-                .body.startWorkDate}")
+            VALUES("${req.body.firstName}", "${req.body.lastName}", "${req.body.userName}", 
+            "${req.body.password}", "${req.body.id}", "${req.body.cellphone}", "${req.body.phone}", 
+            "${req.body.st}", "${req.body.houseNo}", "${req.body.city}", "${req.body.email}", 
+            "${req.body.startWorkDate}")
             `);
     res.send("נרשמת בהצלחה");
+};
 
+//הרשמה של תלמיד למערכת
+async function registerstudent(req, res) {
+    let id = req.body.id;
+    let firstname = req.body.firstname;
+    let lastname = req.body.lastname;
+    let cellphone = req.body.cellphone;
+    let phonenum = req.body.phonenum;
+    let email = req.body.email;
+
+    let users = await db.query("select * from students");
+    console.log("users before for "+users);
+//  console.log(phonenum);
+// let x=db.query(`select id,firstname,lastname,cellphone,phonenum,email from students`);
+// console.log(x);
+
+    for (let user of users) {
+        // console.log("user "+user.id);
+        // console.log("users "+users);
+        // console.log(id);
+        
+        
+        if (
+            user.id === id &&
+            user.firstname === firstname &&
+            user.lastname === lastname
+            
+        ) {
+            res.status(500);
+            return res.send("משתמש קיים במערכת");
+        }
+    }
+    // console.log("users before query "+firstname);
+    
+    await db.query(`INSERT INTO students (id,firstname,lastname,cellphone,phonenum,email ) 
+    VALUES("${req.body.id}","${req.body.firstname}","${req.body.lastname}",${req.body.cellphone},
+    ${req.body.phonenum},"${req.body.email}")`);
+    res.send("נרשמת בהצלחה");
 };

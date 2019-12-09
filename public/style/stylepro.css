@@ -59,7 +59,7 @@
     height: 350px;
     padding: 30px;
     border-radius: 5px;
-    box-shadow: 0px 0px 15px rgb(19, 2, 34);
+    box-shadow: 0px 0px 15px rgb(88, 77, 97);
     font-family: VrelaRound;
     font-weight: bold;
     font-size: 15px;
@@ -122,6 +122,7 @@
 }
 
 .formRegister {
+    
     margin-top: 40px;
 }
 
